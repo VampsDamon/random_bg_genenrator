@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bckground Change</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-transform: uppercase;
+        }
+        .btn{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            padding: 1rem 2rem ;
+            font-size: 2.3rem;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 5px 5px 5px rgba(215, 192, 111, 0.793);
+            cursor: pointer;
+            transition:all 0.2s ease-in-out;
+            color: rgba(0, 0, 0, 0.597);
+        }
+        .btn:hover{
+            border: 1px solid palevioletred;
+        }
+        .btn:active{
+            
+            box-shadow: 5px 5px 5px rgba(214, 173, 25, 0.859);
+            
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">Stop It</button>
+
+    <script>
+        const body=document.body;
+        const btn=document.querySelector("button");
+    const id=    setInterval(()=>{
+           const red=Math.floor(Math.random()*256);
+           const green=Math.floor(Math.random()*256);
+           const blue=Math.floor(Math.random()*256);
+           const rgb=`rgb(${red},${green},${blue})`;
+           body.style.background=rgb;
+        },1000)
+        btn.addEventListener('click',()=>{
+            clearInterval(id);
+            btn.textContent=body.style.background;
+            
+        })
+    </script>
+</body>
+</html>
